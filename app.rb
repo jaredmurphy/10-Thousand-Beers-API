@@ -15,6 +15,7 @@ end
 
 require_relative "routes/beers"
 require_relative "helpers/twilio"
+require_relative "helpers/pg"
 Dotenv.load('keys.env')
 
 
