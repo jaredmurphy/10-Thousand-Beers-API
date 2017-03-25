@@ -30,10 +30,7 @@ class TenKBeers < Sinatra::Base
   def conn
     if ENV["RACK_ENV"] == 'production'
       @@conn ||= PG.connect(
-        dbname: ENV["POSTGRES_DB"],
-        host: ENV["POSTGRES_HOST"],
-        password: ENV["POSTGRES_PASS"],
-        user: ENV["POSTGRES_USER"]
+        dbname: ENV["DATBASE_URL"]
       )
     else
       @@conn ||= PG.connect(dbname: ENV["PG_DB"])
