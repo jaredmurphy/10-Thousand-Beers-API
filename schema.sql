@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS beers;
+
+CREATE TABLE beers(
+    id SERIAL PRIMARY KEY,
+    count INTEGER NOT NULL
+);
+
+INSERT INTO beers(count) VALUES(10000);

@@ -1,27 +1,5 @@
-# MTAStatus 
+# 10,000 Beers
 
-![preview](/public/og.png)
+One of my students said he would owe us 10,000 beers if he got a job at Google. Luckily for both of us, he's a Googler!
 
-# API Usage
-
-### All Lines
-
-GET "api/trains"
-
-### Single Train
-
-GET "api/trains/:train-name"
-
-E.g.,
-
-`http://mtastat.us/api/trains/F`
-
-
-# Contributors (non-code)
-
-### Android/iOS/Favicon Design: 
-  https://calewagnerdesign.myportfolio.com/
-  
-  calewagnerdesign@gmail.com
-  
-  ![icon](/public/img/icons/apple-icon-72x72.png)
+This is the Sinatra API, there's a React Client here: 
