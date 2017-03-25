@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 ruby "2.2.3"
 
+gem "dotenv"
 gem "nokogiri"
 gem "pry"
 gem "rspec"
@@ -11,3 +12,4 @@ gem "vcr"
 gem "webmock"
 gem "sinatra-cross_origin"
 gem "pg"
+gem "twilio-ruby"

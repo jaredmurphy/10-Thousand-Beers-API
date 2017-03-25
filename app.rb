@@ -7,6 +7,8 @@ require "sinatra/namespace"
 require "sinatra/reloader"
 require "sinatra/cross_origin"
 require "pg"
+require "twilio-ruby"
+require 'dotenv/load'
 
 configure do
   enable :cross_origin
@@ -18,3 +20,7 @@ class TenKBeers < Sinatra::Base
 end
 
 require_relative "routes/beers"
+require_relative "helpers/twilio"
+Dotenv.load('keys.env')
+
+

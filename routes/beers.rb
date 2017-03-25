@@ -7,7 +7,8 @@ class TenKBeers < Sinatra::Base
   end
 
   post "/purchase_beer" do
-    conn.exec("Update beers SET count = count-1 WHERE id=1")
+    text_noah
+    update_beer_count
     beer_count.to_json
   end
 
@@ -15,6 +16,15 @@ class TenKBeers < Sinatra::Base
 
   def beer_count
     conn.exec("SELECT count FROM beers WHERE id=1").to_a
+  end
+
+  def update_beer_count
+    conn.exec("Update beers SET count = count-1 WHERE id=1")
+  end
+
+  def text_noah
+    twilio = TwilioHelper.new
+    twilio.send_message
   end
 
   def conn
@@ -26,7 +36,7 @@ class TenKBeers < Sinatra::Base
         user: ENV["POSTGRES_USER"]
       )
     else
-        @@conn ||= PG.connect(dbname: "10kbeers")
+      @@conn ||= PG.connect(dbname: ENV["PG_DB"])
     end
   end 
 end
