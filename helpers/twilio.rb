@@ -1,17 +1,11 @@
-class TwilioHelper
- def initialize
-    account_sid = ENV["TWILIO_ACCOUNT_SID"]
-    auth_token  = ENV["TWILIO_AUTH_TOKEN"]
-    @client = Twilio::REST::Client.new(account_sid, auth_token)
-  end
-
-  def send_message
+module TwilioHelper
+  def self.send_message
       sms(get_message)
   end
 
   private
 
-  def get_message
+  def self.get_message
       messages = [
           "Congrats, Noah! And, thanks for the beer",
           "Only a blackbelt in Karate could buy beers like you",
@@ -25,11 +19,17 @@ class TwilioHelper
           "Could I have gotten my cast off two weeks ago? *sigh* Yes...",
           "This beer is going to be legend..... wait for it. DARY!"
       ]
-      @message = messages.sample
+      messages.sample
   end
 
-  def sms(message)
-    @client.messages.create(
+  def self.twilio_init
+    account_sid = ENV["TWILIO_ACCOUNT_SID"]
+    auth_token  = ENV["TWILIO_AUTH_TOKEN"]
+    client = Twilio::REST::Client.new(account_sid, auth_token)
+  end
+
+  def self.sms(message)
+    twilio_init.messages.create(
       from:      ENV["TWILIO_NUMBER"],
       to:        ENV["CLIENT_NUMBER"],
       body:      message
